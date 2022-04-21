@@ -1,0 +1,103 @@
+﻿@model nhbernet.Models.usermodel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<style>
+.error
+{
+    color:Red;
+}
+</style>
+
+<h2>Edit</h2>
+<form action="@Url.Action("Edit","Home")" method="post" id="updatemodal">
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>Name</label>
+@Html.TextBoxFor(x => x.name, new { @class="form-control"})
+@Html.HiddenFor(x=>x.id)
+</div>
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>Address</label>
+@Html.TextBoxFor(x => x.address, new { @class="form-control"})
+</div>
+</div>
+<div class="form-row">
+</div>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>State</label>
+@Html.DropDownListFor(x => x.state, Model.states, "Please Select",new { @class = "form-control", onchange = "statechange(this.value)" })
+</div>
+<div class="form-group col-md-6">
+<label>City</label>
+@Html.DropDownListFor(x => x.city,Model.cities, new { @class="form-control"})
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+</div>
+</div>
+</form>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () { 
+
+    $('#updatemodal').submit(function () {
+        debugger;
+        var name = document.forms["updatemodal"]["name"].value;
+        var address = document.forms["updatemodal"]["address"].value;
+        var city = document.forms["updatemodal"]["city"].value;
+        var state = document.forms["updatemodal"]["state"].value;
+
+        $(".error").remove();
+
+        if (name == "") {
+            $("#name").after('<span class="error">Enter name</span>')
+        }
+
+        if (address == "") {
+            $("#address").after('<span class="error">Enter Address</span>')
+        }
+        if (name != "" && address != "") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+})
+
+
+function statechange(stateid) {
+    debugger;
+    $.ajax({
+        url: '/Home/GetcityBystateId',
+        method: 'get',
+        data: { stateid: stateid },
+        dataType: 'json',
+        success: function (data) {
+            $("#city").empty();
+            $("#city").append($('<option/>', { value: "", text: 'Select States' }));
+            $(data).each(function (index, item) {
+                debugger;
+                $("#city").append($('<option/>', { value: item.Value, text: item.Text }));
+            });
+        }
+    });
+}
+
+</script>
+
+
+

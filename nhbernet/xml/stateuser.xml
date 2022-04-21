@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<states>
+  <state>
+    <Id>1</Id>
+    <Name>Maharashtra</Name>
+  </state>
+    <state>
+    <Id>2</Id>
+    <Name>Delhi</Name>
+  </state>
+    <state>
+    <Id>3</Id>
+    <Name>UP</Name>
+  </state>
+</states>

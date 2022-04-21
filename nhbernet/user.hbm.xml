@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="nhbernet" namespace="nhbernet.Models">
+  <class name="user" table="user" lazy="true" >
+ 
+    <id name="id" column="Id">
+      <generator class="identity" />
+    </id>
+
+    <property name="name">
+      <column name="Name" sql-type="varchar(20)" not-null="true"/>
+    </property>
+
+    <property name="address">
+      <column name="Address" sql-type="varchar(20)" not-null="true"/>
+    </property>
+
+    <!--<property name="city">
+      <column name="City" sql-type="varchar(20)" not-null="true"/>
+    </property>-->
+
+    
+      <many-to-one name="cityid" class="nhbernet.Models.city, nhbernet.Models" column="cityid"/>
+
+    <many-to-one name="stateid" class="nhbernet.Models.state, nhbernet.Models" column="stateid"/>
+    
+    
+  </class>
+
+</hibernate-mapping>

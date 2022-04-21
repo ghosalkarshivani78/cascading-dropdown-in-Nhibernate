@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<cities>
+  <city>
+    <Id>1</Id>
+    <Name>Thane</Name>
+    <stateid>1</stateid>
+  </city>
+  <city>
+    <Id>2</Id>
+    <Name>Pune</Name>
+    <stateid>1</stateid>
+  </city>
+  <city>
+    <Id>3</Id>
+    <Name>Mumbai</Name>
+    <stateid>1</stateid>
+  </city>
+  <city>
+    <Id>4</Id>
+    <Name>Noida</Name>
+    <stateid>2</stateid>
+  </city>
+  <city>
+    <Id>5</Id>
+    <Name>New Delhi</Name>
+    <stateid>2</stateid>
+  </city>
+  <city>
+    <Id>6</Id>
+    <Name>Ajamgad</Name>
+    <stateid>3</stateid>
+  </city>
+  <city>
+    <Id>7</Id>
+    <Name>Mirzapur</Name>
+    <stateid>3</stateid>
+  </city>
+</cities>
